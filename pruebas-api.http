@@ -1,0 +1,238 @@
+POST http://localhost:8080/api/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "Prueba",
+  "apellido": "Backend",
+  "correo": "prueba.backend@disestock.com",
+  "usuario": "pruebabackend",
+  "contrasena": "123456",
+  "rol": "Tecnico",
+  "estado": "Activo"
+}
+###
+
+PUT http://localhost:8080/api/usuarios/11
+Content-Type: application/json
+
+{
+  "nombre": "Prueba Actualizada",
+  "apellido": "Backend",
+  "correo": "prueba.backend@disestock.com",
+  "usuario": "pruebabackend",
+  "contrasena": "123456",
+  "rol": "Tecnico",
+  "estado": "Activo"
+}
+###
+
+DELETE http://localhost:8080/api/usuarios/11
+### PRUEBA DE VALIDACIÓN - Usuario con datos inválidos
+POST http://localhost:8080/api/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "",
+  "apellido": "",
+  "correo": "correo-invalido",
+  "usuario": "ab",
+  "contrasena": "123",
+  "rol": "",
+  "estado": ""
+}
+### INVENTARIO - Listar todos los materiales
+GET http://localhost:8080/api/inventario
+### INVENTARIO - Registrar material
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "MAT-001",
+  "nombre": "Cable eléctrico calibre 12",
+  "cantidad": 100,
+  "stockMinimo": 20,
+  "estado": "Activo"
+}
+### INVENTARIO - Actualizar material
+PUT http://localhost:8080/api/inventario/1
+Content-Type: application/json
+
+{
+  "codigo": "MAT-001",
+  "nombre": "Cable eléctrico calibre 12 actualizado",
+  "cantidad": 150,
+  "stockMinimo": 25,
+  "estado": "Activo"
+}
+### INVENTARIO - Consultar material por ID
+GET http://localhost:8080/api/inventario/1
+
+### INVENTARIO - Eliminar material
+DELETE http://localhost:8080/api/inventario/1
+
+### INVENTARIO - PRUEBA DE VALIDACIÓN - Datos inválidos
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "",
+  "nombre": "",
+  "cantidad": -10,
+  "stockMinimo": -5,
+  "estado": ""
+}
+### INVENTARIO - PRUEBA - ID inexistente
+GET http://localhost:8080/api/inventario/99999
+
+### INVENTARIO - PRUEBA - Registrar código para duplicado
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "DUP-001",
+  "nombre": "Material prueba duplicado",
+  "cantidad": 50,
+  "stockMinimo": 10,
+  "estado": "Activo"
+}
+### INVENTARIO - Material 1
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "MAT-001",
+  "nombre": "Cable eléctrico calibre 12",
+  "cantidad": 120,
+  "stockMinimo": 30,
+  "estado": "Activo"
+}
+
+### INVENTARIO - Material 2
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "MAT-002",
+  "nombre": "Cable eléctrico calibre 10",
+  "cantidad": 80,
+  "stockMinimo": 20,
+  "estado": "Activo"
+}
+
+### INVENTARIO - Material 3
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "MAT-003",
+  "nombre": "Interruptor sencillo",
+  "cantidad": 45,
+  "stockMinimo": 15,
+  "estado": "Activo"
+}
+
+### INVENTARIO - Material 4
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "MAT-004",
+  "nombre": "Tomacorriente doble",
+  "cantidad": 38,
+  "stockMinimo": 15,
+  "estado": "Activo"
+}
+
+### INVENTARIO - Material 5
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "MAT-005",
+  "nombre": "Breaker monopolar 20A",
+  "cantidad": 25,
+  "stockMinimo": 10,
+  "estado": "Activo"
+}
+
+### INVENTARIO - Material 6 - STOCK BAJO
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "MAT-006",
+  "nombre": "Tubería PVC eléctrica 1/2 pulgada",
+  "cantidad": 8,
+  "stockMinimo": 20,
+  "estado": "Activo"
+}
+
+### INVENTARIO - Material 7
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "MAT-007",
+  "nombre": "Caja rectangular eléctrica",
+  "cantidad": 65,
+  "stockMinimo": 20,
+  "estado": "Activo"
+}
+
+### INVENTARIO - Material 8 - STOCK BAJO
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "MAT-008",
+  "nombre": "Cinta aislante negra",
+  "cantidad": 5,
+  "stockMinimo": 15,
+  "estado": "Activo"
+}
+
+### INVENTARIO - Material 9
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "MAT-009",
+  "nombre": "Bombillo LED 12W",
+  "cantidad": 50,
+  "stockMinimo": 20,
+  "estado": "Activo"
+}
+
+### INVENTARIO - Material 10 - SIN EXISTENCIAS
+POST http://localhost:8080/api/inventario
+Content-Type: application/json
+
+{
+  "codigo": "MAT-010",
+  "nombre": "Contactor trifásico 25A",
+  "cantidad": 0,
+  "stockMinimo": 5,
+  "estado": "Activo"
+}
+### INVENTARIO - Ver inventario completo
+GET http://localhost:8080/api/inventario
+### LIMPIEZA - Eliminar material usado en prueba de duplicados
+DELETE http://localhost:8080/api/inventario/2
+### INVENTARIO - Consultar materiales con stock bajo
+GET http://localhost:8080/api/inventario/stock-bajo
+
+### USUARIOS - Listar todos
+GET http://localhost:8080/api/usuarios
+### USUARIOS - PRUEBA DE VALIDACIÓN - Datos inválidos
+POST http://localhost:8080/api/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "",
+  "apellido": "",
+  "correo": "",
+  "usuario": "",
+  "contrasena": "",
+  "rol": "",
+  "estado": ""
+}
